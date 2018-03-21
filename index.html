@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <html lang="us">
+        
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body {background-color: darkgreen;
+                }
+                
+                
+                div#main {background-color: lightgreen;
+                        position: static;
+                        width: 600px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        text-align: center;
+                        font-size: 24px;
+                        font-weight: bold;}
+            </style>
+            
+        </head>
+        
+        <body onload="document.getElementById('button1').disabled = false;">
+            
+            <script>
+                var Web3 = require('web3');
+					// create an instance of web3 using the HTTP provider.
+					// NOTE in mist web3 is already available, so check first if it's available before instantiating
+					var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+                //declare var for totalRolls
+                var totalRolls = new Number;
+                //declare var for totalSevens
+                var totalSevens = new Number;
+                //declare var for totalDoubles
+                var totalDoubles = new Number;
+                //function for rollDice()
+                function rollDice() {
+                    //declare a var for die1
+                    var die1 = Math.floor(Math.random() * 6) + 1;
+                    //declare a var for die2
+                    var die2 = Math.floor(Math.random() * 6) + 1;
+                    //change the src of die1
+                    document.getElementById('die1image').src = die1 + ".png";
+                    //change the src of die2
+                    document.getElementById('die2image').src = die2 + ".png";
+                    //declare a var for diceTotal
+                    var diceTotal = die1 + die2;
+                    //change value of diceTotalText to show value of diceTotal
+                    document.getElementById('diceTotalText').innerHTML = diceTotal;
+                    //add 1 to totalRollsText every time button is clicked
+                    totalRolls++;
+                    document.getElementById('totalRollsText').innerHTML = totalRolls;
+                    //add 1 to totalDoubles every time button is clicked
+                    if (die1 == die2) {
+                        totalDoubles++;
+                        document.getElementById('totalDoublesText').innerHTML = totalDoubles;
+                    }
+                    //dynamic text and background color
+            if (diceTotal == 2){
+                document.getElementById('messageText').innerHTML = "You Lose!";
+                document.getElementById('button1').disabled = true;
+                document.body.style.backgroundColor = "red";
+                }
+                //else if you roll a 7
+                else if (diceTotal == 7) {
+                    document.getElementById('messageText').innerHTML = "Lucky Number 7";
+                    totalSevens++;
+                    document.getElementById('totalSevensText').innerHTML = totalSevens;
+                }
+                // else if you roll an 11
+                else if (diceTotal == 11) {
+                    document.getElementById('messageText').innerHTML = "So close....";
+                }
+                //else if you roll a 12
+                else if (diceTotal == 12) {
+                    document.getElementById('messageText').innerHTML = "You Win!";
+                    document.getElementById('button1').disabled = true;
+                    document.body.style.backgroundColor = "yellow";
+                }
+                //everything else
+                else {
+                    document.getElementById('messageText').innerHTML = "Try again...";
+                }
+                }
+                </script>
+            <div id="main">
+                <h1>Roll the Dice</h1>
+                <img src="0.png" alt="die" id="die1image">
+                +
+                <img src="0.png" alt="die" id="die2image">
+                =
+                <span id="diceTotalText">
+                    ?
+                </span>
+                <br>
+                <input type="button" id="button1" value="Roll the Dice" onclick="rollDice();">
+                
+                <p id="messageText">
+                 &nbsp;   
+                </p>
+                
+                <p>
+                    Number of Total Rolls:
+                    <span id="totalRollsText">
+                        0
+                    </span>
+                </p>
+                
+                <p>
+                    Number of Sevens Rolled:
+                    <span id="totalSevensText">
+                        0
+                    </span>
+                </p>
+                
+                <p>
+                    Number of Doubles Rolled:
+                    <span id="totalDoublesText">
+                        0
+                </span>
+                </p>
+                
+                <br>
+                
+            </div>
+            
+        </body>
+    </html>

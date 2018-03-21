@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<style>
+		body{background-color:red;}
+		
+		div#main {background-color:lightgreen;
+			position:static;
+			width: 600px;
+			margin-left:auto;
+			margin-right:auto;
+			padding-left:20px;
+			padding-right:20px;
+			text-align:center;
+			font-size:24px;
+			font-weight:bold;}
+	</style>
+	<title>Ozzy's Casino</title>
+	<script src="/parity-utils/inject.js"></script>
+</head>
+<body>
+ <center><h1>Welcome to Ozzy's Casino</h1></center>
+ 
+	<div id="app"></div>
+	<script src="bundle.js"></script>
+</body>
+</html>

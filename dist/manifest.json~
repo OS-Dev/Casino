@@ -1,0 +1,8 @@
+{
+	"id": "mydapp",
+	"name": "Ozzy's Casino",
+	"description": "Casino Games",
+	"version": "0.1",
+	"author": "Ozzy Technologies Ltd",
+	"iconUrl": "casino.jpg"
+}

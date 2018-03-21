@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Ozzy's Casino</title>
+	<script src="/parity-utils/inject.js"></script>
+</head>
+<body bg="red">
+ 
+	<div id="app"></div>
+	<script src="bundle.js"></script>
+	
+</body>
+</html>
